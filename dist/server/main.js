@@ -985,7 +985,8 @@ var i1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http")
 var MainService = /** @class */ (function () {
     function MainService(http) {
         this.http = http;
-        this.apiUrl = "http://localhost:8000/";
+        // apiUrl = "http://localhost:8000/"
+        this.apiUrl = "https://annapi.vishalpandey.xyz/";
     }
     MainService.prototype.predict = function (arr) {
         return this.http.get(this.apiUrl + "predict?img=" + arr);

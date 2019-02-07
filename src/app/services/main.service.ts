@@ -8,7 +8,8 @@ export class MainService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = "http://localhost:8000/"
+  // apiUrl = "http://localhost:8000/"
+  apiUrl = "https://annapi.vishalpandey.xyz/"
 
   predict(arr){
   	return this.http.get(this.apiUrl+"predict?img="+arr);
