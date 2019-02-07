@@ -25,7 +25,7 @@ SECRET_KEY = 'q41f0e4f#a0zog25qj$rs%4d@6#s--v7dilt#%26m=q4rt!1m='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '40.117.251.53', 'www.seefam.ml', 'seefam.ml']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '40.117.251.53', 'www.seefam.ml', 'seefam.ml', 'annapi.vishalpandey.xyz']
 
 
 
@@ -129,5 +129,6 @@ CORS_ORIGIN_WHITELIST = (
     'hostname.example.com',
     'localhost:8000',
     '127.0.0.1:9000',
-    'localhost:4200'
+    'localhost:4200',
+    'ann.vishalpandey.xyz'
 )
