@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import json
 import ast
 import numpy as np
-from predict import weights
+from predict import weights1
 
 
 
@@ -21,7 +21,7 @@ def actual_output(image, w_data):
 def get_user(request, *args, **kwargs):
     image = request.GET['img']
     image = ast.literal_eval(image)
-    w_data = weights.X
+    w_data = weights1.X
 
 
     vid=actual_output(image, w_data)
