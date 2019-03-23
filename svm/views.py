@@ -11,7 +11,7 @@ def get_user(request, *args, **kwargs):
 	image = request.GET['img']
 	image = ast.literal_eval(image)
     
-	f = open('/Users/vishalpandey/Documents/Projects/mnist-ann/myproject/svm/svm.txt', 'rb')
+	f = open('/home/vishal/vishal/backend/mnist-ann/svm/svm.txt', 'rb')
 	s = f.read()
 
 	clf = pickle.loads(s)
