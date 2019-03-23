@@ -26,7 +26,7 @@ SECRET_KEY = 'q41f0e4f#a0zog25qj$rs%4d@6#s--v7dilt#%26m=q4rt!1m='
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '40.117.251.53', 'www.seefam.ml', 'seefam.ml', 'annapi.vishalpandey.xyz', 'ann.vishalpandey.xyz']
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
