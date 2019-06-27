@@ -14,4 +14,12 @@ export class MainService {
   predict(arr){
   	return this.http.get(this.apiUrl+"predict?img="+arr);
   }
+
+  predictSvn(arr){
+  	return this.http.get(this.apiUrl+"svm?img="+arr);
+  }
+
+  predictDTC(arr){
+    return this.http.get(this.apiUrl+'dtc?img='+arr);
+  }
 }

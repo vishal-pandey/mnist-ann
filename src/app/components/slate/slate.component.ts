@@ -16,25 +16,44 @@ export class SlateComponent implements AfterViewInit {
   height = 28;
   result = 0;
 
+  checking:boolean = false;
+
   constructor(public mS:MainService) { }
 
-  public check(){
+  public check(m){
   	let x = this.cx.getImageData(0,0,this.height,this.width).data;
   	let y = [];
   	for (var i = 3; i < this.height*this.width*4; i+=((this.width/28)*4)) {
   		console.log(i);
-  		y.push(x[i]/255);
+  		y.push(x[i]/256);
   	}
   	let image = "["+y.toString()+"]";
-  	this.mS.predict(image).subscribe((r:any)=>{
-  		this.result = r.op;
-  	})
+  	console.log(image);
+
+  	if (m == "ann") {	
+  		this.checking = true;
+	  	this.mS.predict(image).subscribe((r:any)=>{
+	  		this.result = r.op;
+	  		this.checking = false;
+	  	})
+  	}
+  	if (m == "dtc") {
+  		this.checking = true;
+  		this.mS.predictDTC(image).subscribe((r:any)=>{
+	  		this.result = r.op;
+	  		this.checking = false;
+	  	})
+  	}
+
+
+
 		console.log(y);
 
 	}
 
 	reset(){
 		this.cx.clearRect(0,0,28,28)
+		this.result = 0;
 	}
 
 
@@ -44,7 +63,7 @@ export class SlateComponent implements AfterViewInit {
   	canvasEl.width = this.width;
     canvasEl.height = this.height;
 
-    this.cx.lineWidth = 4;
+    this.cx.lineWidth = 1;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = '#000';
 

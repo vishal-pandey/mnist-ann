@@ -1,0 +1,23 @@
+<section class="container">
+	<section class="content">
+		<div class="slate" (mouseleave)="mleave()">
+			<span class="cell" *ngFor="let x of cell" (mousedown)="mdown(thecell, x)" (mousemove)="mmove(thecell, x)" (mouseup)="mup(thecell, x)" #thecell>
+				<span class="mini-cell"></span>
+				<span class="mini-cell"></span>
+				<span class="mini-cell"></span>
+				<span class="mini-cell"></span>
+			</span>
+		</div>
+		<div class="result">
+			<span *ngIf="!loading">{{result}}</span>
+			<span *ngIf="loading"><mat-spinner></mat-spinner></span>
+		</div>
+		<button (click)="reset()" mat-stroked-button>Reset</button>
+		<button (click)="check()" mat-stroked-button>Check</button>
+
+	</section>
+</section>
+<!-- <span *ngFor="let x of cell" class="cellc">
+	<span *ngFor="let i of x" class="cell">{{i}}</span>
+	<br>
+</span> -->

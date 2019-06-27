@@ -1,0 +1,20 @@
+<section class="container">
+	<mat-toolbar style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+		<span>Hand Written Digit Prediction Using Decision Tree Classifier</span>
+		<button mat-raised-button routerLink="/">ANN</button>
+	</mat-toolbar>
+	<section class="Result" style="width: 500px; height: 500px; display: flex; align-items: center; justify-content: space-around; font-size: 100px; flex-direction: column;">
+	<canvas #canvas width="140" height="140"></canvas>
+	<button mat-stroked-button (click)="check()">Check</button>
+	<button mat-stroked-button (click)="reset()">Reset</button>
+		<span>{{result}}</span>
+	</section>
+	
+</section>
+
+
+
+
+
+
+

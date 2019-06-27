@@ -1,0 +1,41 @@
+.cellc{
+	height: 0px;
+	background-color: green;
+	margin: 0;
+	padding: 0;
+}
+.cell{
+	width: 16px; 
+	height: 16px; 
+	/*border: 1px solid green; */
+	/*display: inline-block;*/
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	/*line-height: 25px;*/
+}
+.mini-cell{
+	width: 8px;
+	height: 8px;
+	/*background-color: green;*/
+}
+.slate{
+	width: 448px;
+	height: 448px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	border: 1px solid black;
+}
+.result{
+	width: 100px;
+	height: 100px;
+	font-size: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+

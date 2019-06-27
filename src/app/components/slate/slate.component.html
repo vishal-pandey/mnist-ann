@@ -1,6 +1,22 @@
-<section class="Result" style="width: 500px; height: 500px; display: flex; align-items: center; justify-content: space-around; font-size: 100px; flex-direction: column;">
-<canvas #canvas width="140" height="140"></canvas>
-<button mat-stroked-button (click)="check()">Check</button>
-<button mat-stroked-button (click)="reset()">Reset</button>
-	<span>{{result}}</span>
+<section class="container">
+	<mat-toolbar style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+		<span>Hand Written Digit Prediction Using Single Layer Neural Network / Decision Tree Classifier</span>
+		<a href="https://github.com/vishal-pandey/mnist-ann"><button mat-stroked-button>GitHub</button></a>
+	</mat-toolbar>
+	<section class="Result" style="width: 500px; height: 500px; display: flex; align-items: center; justify-content: space-around; font-size: 100px; flex-direction: column;">
+	<canvas #canvas width="140" height="140"></canvas>
+	<button mat-stroked-button (click)="check('ann')">Check ANN</button>
+	<button mat-stroked-button (click)="check('dtc')">Check DTC</button>
+	<button mat-stroked-button (click)="reset()">Reset</button>
+		<span *ngIf="!checking">{{result}}</span>
+		<span *ngIf="checking"><mat-spinner></mat-spinner></span>
+	</section>
+	
 </section>
+
+
+
+
+
+
+

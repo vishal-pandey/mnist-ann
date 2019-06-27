@@ -77,12 +77,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SlateComponent } from './components/slate/slate.component';
+import { HomeComponent } from './components/home/home.component';
+import { SvmComponent } from './components/svm/svm.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DtcComponent } from './components/dtc/dtc.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SlateComponent,
+    HomeComponent,
+    SvmComponent,
+    FooterComponent,
+    HeaderComponent,
+    DtcComponent,
   ],
   imports: [
     AppRoutingModule,
