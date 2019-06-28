@@ -10,3 +10,13 @@ canvas{
 	justify-content: flex-start;
 	flex-direction: column;
 }
+
+footer{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+}

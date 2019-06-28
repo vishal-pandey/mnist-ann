@@ -1,6 +1,6 @@
 <section class="container">
 	<mat-toolbar style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-		<span>Hand Written Digit Prediction Using Single Layer Neural Network / Decision Tree Classifier</span>
+		<span style="text-align: center; word-wrap: normal; width: auto;">Hand Written Digit Prediction Using Single Layer Neural Network / Decision Tree Classifier</span>
 		<a href="https://github.com/vishal-pandey/mnist-ann"><button mat-stroked-button>GitHub</button></a>
 	</mat-toolbar>
 	<section class="Result" style="width: 500px; height: 500px; display: flex; align-items: center; justify-content: space-around; font-size: 100px; flex-direction: column;">
@@ -11,7 +11,13 @@
 		<span *ngIf="!checking">{{result}}</span>
 		<span *ngIf="checking"><mat-spinner></mat-spinner></span>
 	</section>
-	
+	<p style="width: 80%; padding:0px 100px;">
+		<b>Instruction :- </b>
+		<span>Draw the digits from 0 to 9 one by one in the square box above, and then click on two check buttons, one for prediction using <i> Artigicial Neural Network </i>, and second for <i>Decition Tree Classifier</i>. Click Reset button to clear the box for predicting next digit.</span>
+	</p>
+	<footer>
+		<span>&copy; Copyright 2019 All rights reserved. <a href="https://www.vishalpandey.xyz/">Vishal Pandey</a></span>
+	</footer>
 </section>
 
 

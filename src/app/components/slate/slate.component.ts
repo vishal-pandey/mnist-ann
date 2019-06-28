@@ -12,8 +12,11 @@ export class SlateComponent implements AfterViewInit {
 
   @ViewChild('canvas') public canvas: ElementRef;
   private cx: CanvasRenderingContext2D;
-  width = 28;
-  height = 28;
+  // width = 28;
+  // height = 28;
+
+  width = 56;
+  height = 56;
   result = 0;
 
   checking:boolean = false;
@@ -23,10 +26,47 @@ export class SlateComponent implements AfterViewInit {
   public check(m){
   	let x = this.cx.getImageData(0,0,this.height,this.width).data;
   	let y = [];
-  	for (var i = 3; i < this.height*this.width*4; i+=((this.width/28)*4)) {
-  		console.log(i);
-  		y.push(x[i]/256);
+  	let z = [];
+  	
+  	// console.log(x);
+  	let counter = 0;
+  	for (var i = 3; i < this.height*this.width*4; i+=4) {
+  		y.push(x[i])
+  		counter += 1;
+  		if (counter == this.width) {
+  			counter = 0;
+  			z.push(y)
+  			y = []
+  		}
   	}
+  	console.log(z)
+  	let limit = this.width * this.height;
+  	counter = 0
+  	// for(var i = 0; i < this.width; i+=1){
+  	// 	for(var j = 0; j < this.height; j=+1){
+  	// 		console.log(z[i])
+  	// 		// y.push(z[i][j])
+  	// 		counter +=1;
+  	// 		if (counter > limit) {
+  	// 			break;
+  	// 			// return;
+  	// 		}
+  	// 	}
+  	// }
+
+  	for(var i=0; i<this.width; i+=2){
+			for(var j=0; j<this.height; j+=2){
+				// console.log(z[i][j])
+				y.push((z[i][j]+z[i+1][j]+z[i][j+1]+z[i+1][j+1])/(255*4))
+	    }
+		}
+  	// console.log(y.toString())
+
+
+  	// for (var i = 3; i < this.height*this.width*4; i+=((this.width/28)*4)) {
+  	// 	console.log(i);
+  	// 	y.push(x[i]/256);
+  	// }
   	let image = "["+y.toString()+"]";
   	console.log(image);
 
@@ -47,12 +87,13 @@ export class SlateComponent implements AfterViewInit {
 
 
 
-		console.log(y);
+		// console.log(y);
 
 	}
 
 	reset(){
-		this.cx.clearRect(0,0,28,28)
+		this.cx.clearRect(0,0,this.width,this.height)
+		this.checking = false;
 		this.result = 0;
 	}
 
@@ -63,7 +104,7 @@ export class SlateComponent implements AfterViewInit {
   	canvasEl.width = this.width;
     canvasEl.height = this.height;
 
-    this.cx.lineWidth = 1;
+    this.cx.lineWidth = 3;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = '#000';
 
