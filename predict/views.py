@@ -10,6 +10,9 @@ from .serializers import ImageSerializer
 from predict import models as predict
 
 
+import requests as rq
+from bs4 import BeautifulSoup
+
 
 
 
@@ -73,5 +76,21 @@ def get_user(request, *args, **kwargs):
             }),
         content_type='application/json')
 
+
+
+def getUrl(request, *args, **kwargs):
+    url = request.GET['url']
+    post_type = request.GET['type']
+    res = rq.get(url)
+    soup = BeautifulSoup(res.text)
+    video_url = ""
+    if post_type == "1":
+        video_url = soup.find("meta", {"property": "og:video:secure_url"})
+        video_url = video_url['content']
+        return HttpResponse(
+            json.dumps({
+                'url': str(video_url),
+                }),
+            content_type='application/json')
 
 
