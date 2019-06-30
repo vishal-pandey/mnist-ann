@@ -93,4 +93,13 @@ def getUrl(request, *args, **kwargs):
                 }),
             content_type='application/json')
 
+    if post_type == "2":
+        photo_url = soup.find("meta", {"property": "og:image"})
+        photo_url = photo_url['content']
+        return HttpResponse(
+            json.dumps({
+                'url': str(photo_url),
+                }),
+            content_type='application/json')        
+
 
